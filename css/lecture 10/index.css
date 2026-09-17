@@ -1,0 +1,73 @@
+#ritesh {
+    font-family: "Yuyu";
+}
+
+.yuyu-regular {
+    font-family: "Yuyu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+#yo {
+    font-size: 100px;
+
+letter-spacing: 30px;
+    text-shadow: 10px 10px 10px red;
+
+}
+
+
+p {
+    font-size: 24px;
+    font-weight: 900;
+
+    font-variant: small-caps;
+}
+
+#anu {
+    font-style: italic;
+    font-variant: small-caps;
+    line-height: 1,5;
+    letter-spacing: 3px;
+    word-spacing: 30px;
+}
+
+
+#vikas{
+    text-align: center;
+}
+
+#kal{
+    /* text-align:center; */
+    display: block;
+    text-decoration: dashed;
+    /* text-decoration:  line-through  1px; */
+    /* text-decoration:  overline  1px; */
+    /* text-decoration:  overline  1px; */
+    /* text-decoration:  underline wavy  1px; */
+
+    /* text-transform: capitalize; */
+    /* text-transform: lowercase; */
+    /* text-transform: uppercase; */
+    text-indent:139px;
+    
+}
+
+em {
+    font-style: normal;
+
+
+}
+
+#color{
+    /* color:#0000ff;
+    color:rgb(196, 66, 196);
+    color:rgba(255, 0, 72,0,508); */
+
+    color:hsl(360,100%,50%);
+    color: hsla(360,100%,50%,);
+    background-color: rgb(233, 155, 155);
+    
+}

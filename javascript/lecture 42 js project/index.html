@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Project 1</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-slate-200">
+
+    <div class=" text-xl max-w-md mx-auto my-5">
+        <div>
+            <h1 class="bg-indigo-600 px-5 py-5 rounded-t-lg text-white font-medium">Todo App</h1>
+        </div>
+        <div class="p-5 bg-slate-100 rounded-b-lg">
+            <form action="" id="todo-form" class="flex flex-col gap-2">
+                <div class="flex gap-5">
+                <input type="text" class="border-2 flex-1 rounded-md p-2 border-gray-400 
+                " placeholder="Enter task description... " id="todo-input">
+                <button id="form-btn"
+                    class="text-white hover:cursor-pointer  bg-indigo-600 px-4 py-1 rounded-lg font-medium">
+                    Add
+                </button>
+                </div>
+                <button id="cancel-btn" class="hidden self-end text-xs text-slate-500 hover:text-slate-700 underline cursor-pointer">Cancel Editing</button>
+            </form>
+            <div
+                class="uppercase text-gray-500 flex justify-between text-xs font-medium pt-5 pb-2 border-b border-black tracking-wider">
+                <p class="" id="task-count">Tasks(0)</p>
+                <p class="" id="complete-count">Completed : 0</p>
+            </div>
+
+            <ul id="todo-list" class="py-5 flex flex-col gap-3">
+                <!-- <li data-id="1" class="  flex gap-2 border border-slate-500 px-4 py-2 rounded-xl">
+                    <input type="checkbox" data-id="1" class="cursor-pointer">
+                    <p class="flex-1">Go to gym</p>
+                    <div class="flex gap-2 text-base font-semibold">
+                        <button class="cursor-pointer px-2 text-amber-700 bg-amber-100 rounded-md" data-id="1">Edit</button>
+                        <button class="bg-red-100 text-red-500 px-2  cursor-pointer rounded-md" data-id="1">Delete</button>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

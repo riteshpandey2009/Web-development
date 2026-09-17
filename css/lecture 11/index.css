@@ -1,0 +1,71 @@
+*{
+    padding: 0;
+    margin: 0;
+     box-sizing: border-box;
+}
+
+
+h1 {
+    /* background-color: rgb(255, 157, 157); */
+    font-size: 100px;
+}
+
+#wrapper {
+    /* background: linear-gradient( 45deg ,red , blue,yellow,pink, green); */
+
+    /* background: radial-gradient(red,blue); */
+
+    /* background: conic-gradient(red,green,blue); */
+
+    /* 
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvgvfPocDqVi-wSk5zVBZlrQyn1wPTbVcNzxCkjuMtsA&s=10);
+    border: 1px solid black;
+    background-repeat: no-repeat; */
+
+    /* background-position: bottom; */
+
+    /* background-size:cover; */
+    /* 
+    border-width: 20px;
+    border-style:solid;
+    border-color:rgb(255, 0, 0) ; */
+
+    /* border: 2px solid navy; */
+
+    /* border-left: 10px solid blueviolet; */
+    border: 10px solid blueviolet;
+
+
+    padding: 40px;
+
+
+    /* height: 500px; */
+    margin: auto;
+}
+
+p {
+    /* padding: 40px; */
+
+    padding: 0 0 0 40px;
+}
+
+.redborder {
+    border: 1px solid red;
+}
+
+#den {
+
+
+    margin: auto;
+    text-align: center;
+}
+
+#mahi {
+
+    width: 100px;
+
+    margin: auto;
+}
+span{
+    margin:auto;
+}

@@ -1,0 +1,76 @@
+/* 
+
+span{
+    color : blueviolet
+
+}
+a , li{
+    color: #e07838;
+}
+
+
+.Hello {
+    color: brown;
+}
+.Hello2{
+    background-color: blueviolet;
+}
+#unique{
+    color:blue;
+    background-color: yellowgreen;
+}
+h1{
+    color: burlywood;
+}
+.rakhi{
+    color:cadetblue
+}
+#Hii{
+    color:darkmagenta
+} */
+/* div p{
+    color:blue
+} */
+/* div > p{
+    color:aquamarine 
+ } */
+/* a+p {
+    color: blue
+} */
+a ~ p{
+    color:blue
+
+}
+/* h2:hover {
+    background-color: maroon;
+}
+p:hover{
+    color: maroon;
+}
+#nihal:hover{
+    color: brown;
+}
+li:hover{
+    color:turquoise
+}
+li:first-child{
+    color:magenta
+}    */
+    /* li:nth-child(3){
+        color:blueviolet
+    } */
+
+h1::after{
+    content: " ji ";
+}
+h1::before{
+
+    content: " Hi hello ";
+    }
+    h1::first-letter{
+       color: blue;
+    }
+    h1::selection{
+       
+        background-color: burlywood;
+    }
