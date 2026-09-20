@@ -10,4 +10,3 @@ else if(numUnits > 200){
     bill = numUnits * 10;
 }
 console.log("final bill" , bill);
-gds
