@@ -1,4 +1,4 @@
-
+//@ts-nocheck
 
 // function fun1(callback){
 //     console.log("hii");
