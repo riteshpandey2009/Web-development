@@ -39,19 +39,16 @@ function addToCart(cb2) {
     }, 3000)
 }
 
-function payment(price , cb3){
+function payment(price) {
     console.log(`payment intialized , Amount : ${price}`);
-    setTimeout(function(){
+    setTimeout(function () {
         console.log(`payment intialized , Amount : ${price}`);
-        cb3()
-    },5000)
+        console.log("Bas aa hi gaye");
+    }, 5000)
 }
 
 searchPizza(function (price) {
-    // console.log(price);
-    addToCart(function (){
-        payment(price,function(){
-            console.log("bass aa hi gya pizza");
-        })
+    addToCart(function () {
+        payment(price)
     })
 })
