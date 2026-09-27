@@ -8,20 +8,7 @@ const taskCount = document.querySelector("#task-count")
 const completeCount = document.querySelector("#complete-count")
 const cancelBtn = document.querySelector("#cancel-btn")
 
-let todos = [{
-    id: Date.now() + 1,
-    text: "Go to gym",
-    isCompleted: false
-}, {
-    id: Date.now() + 2,
-    text: "Take Lecture",
-    isCompleted: true
-}, {
-    id: Date.now() + 3,
-    text: "Review Code",
-    isCompleted: false
-}]
-
+let todos = JSON.parse(localStorage.getItem("todos")) || []
 let editTodoId = null;
 
 todoForm?.addEventListener('submit', (e) => {
@@ -43,6 +30,7 @@ todoForm?.addEventListener('submit', (e) => {
             }
             return todo
         })
+        localStorage.setItem("todos", JSON.stringify(todos))
     }
     else {
         //adding
@@ -52,6 +40,7 @@ todoForm?.addEventListener('submit', (e) => {
             isCompleted: false
         }
         todos.push(newTodo)
+        localStorage.setItem("todos", JSON.stringify(todos))
     }
 
     todoInput.value = ""
@@ -96,7 +85,7 @@ todoList.addEventListener('click', (e) => {
     let action = e.target.dataset.action
     let id = li?.dataset?.id
     let checkbox = e.target.closest('input[type = "checkbox"]')
-    console.log(checkbox);
+    // console.log(checkbox);
 
     if (action === "edit") {
         startEdit(id)
@@ -113,7 +102,9 @@ todoList.addEventListener('click', (e) => {
                 }
             }
             return todo
+
         })
+        localStorage.setItem("todos", JSON.stringify(todos))
         renderTodo()
     }
 })
@@ -126,6 +117,7 @@ function deleteTodo(e, id) {
         }
 
     })
+    localStorage.setItem("todos", JSON.stringify(todos))
     renderTodo()
 }
 
@@ -143,7 +135,6 @@ function startEdit(id) {
     formBtn.className =
         "px-5 py-2 bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-lg transition-colors cursor-pointer";
     cancelBtn.classList.remove('hidden')
-
 }
 
 function cancelEdit() {
@@ -159,6 +150,6 @@ function cancelEdit() {
     cancelBtn.classList.add('hidden')
 }
 
-cancelBtn.addEventListener("click",()=>{
+cancelBtn.addEventListener("click", () => {
     cancelEdit();
 })
