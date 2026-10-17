@@ -9,13 +9,13 @@ function formatCategory(category) {
   return category.replace("-", " ")
 }
 
+let allCategories = []
+
 async function fetchProducts(url) {
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    // console.log(data);
-    renderProducts(data.products)
-  } catch (error) { }
+  productsContainer.innerHTML = "Loading...";
+  const response = await fetch(url);
+  const data = await response.json();
+  renderProducts(data.products)
 }
 
 function renderProducts(products) {
@@ -56,20 +56,26 @@ async function fetchCategoryProducts() {
   try {
     const response = await fetch(CATEGORY_API);
     const data = await response.json();
-    renderCategories(data)
-  } catch (error) { }
+    allCategories=[{ name: "all", slug: "all", url: API }, ...data]
+    renderCategories()
+  } catch (error) {console.log(); }
 
 }
 
-function renderCategories(categories) {
+function renderCategories(currentCategorySlug = "all") {
   categoryFilters.innerHTML = "";
-  [{ name: "all", slug: "all", url: API }, ...categories].forEach(c => {
+  allCategories.forEach(({ name, slug, url }) => {
     let button = document.createElement("button");
-    button.className = "capitalize px-4 py-1.5 rounded-md text-sm font-medium bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition";
+    if (currentCategorySlug === slug) {
+      button.className = "capitalize px-4 py-1.5 rounded-md text-sm font-medium bg-teal-700 text-white transition"
+    }
+    else {
+      button.className = "capitalize px-4 py-1.5 rounded-md text-sm font-medium bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition";
+    }
     button.type = "button"
-    button.textContent = c.name
-    button.dataset.categories = c.slug
-    button.dataset.url = c.url
+    button.textContent = name
+    button.dataset.categories = slug
+    button.dataset.url = url
     categoryFilters?.append(button)
   })
 
@@ -83,10 +89,11 @@ function init() { }
 
 categoryFilters?.addEventListener("click", (e => {
   e.stopPropagation();
-  let element = e.target
+  const element = e.target
   if (element.type) {
-    const text = element.dataset.categories;
+    const category = element.dataset.categories;
     const url = element.dataset.url;
+    renderCategories(category)
     fetchProducts(url)
 
   }
