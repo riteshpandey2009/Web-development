@@ -12,7 +12,13 @@ function formatCategory(category) {
 }
 
 let allCategories = []
-let wishlistBtnText = []
+
+function getItem(key){
+  return JSON.parse(localStorage.getItem(key)) || []
+}
+
+function setItem(){}
+
 
 async function fetchProducts(url) {
   if (!productsContainer) return;
@@ -223,12 +229,12 @@ async function loadProductPage() {
         </div>
       </div>`
   productDetailContainer.innerHTML = div
-  const wishlistBtnText = document.querySelector("#wishlist-btn-tex");
-  wishlistBtnText?.addEventListener("click", (e) => {
+  const addToWishlistBtn = document.querySelector("#add-to-wishlist-btn");
+  addToWishlistBtn?.addEventListener("click", (e) => {
     e.preventDefault()
-    
-    wishlistBtnText.push(data)
-    console.log(wishlistBtnText);
+    // wishlistProduct.push(data)
+    localStorage.setItem("wishlist",JSON.stringify([data,...getItem("wishlist")]))
+    console.log(wishlistProduct);
 
   })
 }
