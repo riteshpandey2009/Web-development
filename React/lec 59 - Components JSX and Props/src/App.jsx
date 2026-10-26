@@ -28,7 +28,10 @@ function App() {
   return (
     <div>
       <Navbar user ={user} />
-      <Products products={products} />
+      <Products products={products} >
+        <p>hii</p> 
+        <p>Ritesh</p> 
+      </Products>
       <Body />
       <FooterUpdate />
       {/* <NewFooter /> */}

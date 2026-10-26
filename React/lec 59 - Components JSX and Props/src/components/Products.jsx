@@ -1,6 +1,7 @@
 import { Product } from "./Product";
 
-function Products({products =[]}) {
+function Products({products =[] , children}) {
+  console.log(children);
     if(products.length < 1){
         return;
     }
@@ -9,7 +10,9 @@ function Products({products =[]}) {
       {products && products.map(({ title, price }, i) => {
         return <Product key={i} title={title} price={price} />;
       })}
+    {children}      
     </div>
+
   );
 }
 export default Products
