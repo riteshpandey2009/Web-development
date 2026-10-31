@@ -2,7 +2,7 @@ let colors = ["red", "green", "yellow", "black"];
 let user = {
   name: "ritesh",
   age: 18,
-  isOnline: true,
+  isOnline: true, 
 };
 function printName() {
   console.log(user.name);
