@@ -1,16 +1,46 @@
 import { useState } from "react";
-import { Link, Outlet, Route, Routes } from "react-router-dom";
+import { data, Link, Outlet, Route, Routes, useParams } from "react-router-dom";
 import "./App.css";
 import NotFoundPage from "./components/NotFoundPage";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 
+const products = [
+  {
+    id: 1,
+    title: "Laptop",
+  },
+  {
+    id: 2,
+    title: "Mobile",
+  },
+];
+
 function Home() {
-  return <h1>Home</h1>;
+  return (
+    <div>
+      <h1>Home</h1>
+      <div>
+        {products.map((p) => (
+          <section>
+            <Link to={`/product-page/${p.id}`}>{p.title}</Link>
+          </section>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 function ProductPage() {
-  return <h1>Product Page</h1>;
+  const { id } = useParams();
+
+  const data = products.find((p) => p.id === Number(id));
+  return (
+    <div>
+      <h1>Product Page</h1>
+      {data ? <p>{data.title}</p> : "No product found"}
+    </div>
+  );
 }
 
 function AboutUs() {
@@ -50,12 +80,12 @@ function App() {
     <Routes>
       <Route path="/" element={<Navbar />}>
         <Route path="/" element={<Home />} />
-        <Route path="/product-page" element={<ProductPage />} />
+        <Route path="/product-page/:id" element={<ProductPage />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Route>
       <Route path="/contact-us" element={<h1>Contact us page</h1>} />
-      <Route path="/login" element={<Login/>} />
+      <Route path="/login" element={<Login />} />
 
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
